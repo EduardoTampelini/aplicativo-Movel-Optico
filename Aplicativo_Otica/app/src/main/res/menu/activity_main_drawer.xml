@@ -12,6 +12,14 @@
             android:id="@+id/nav_cliente_listar"
             android:icon="@android:drawable/ic_search_category_default"
             android:title="Cliente Listar" />
+        <item
+            android:id="@+id/nav_receop_insert"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="Receituario Inserir" />
+        <item
+            android:id="@+id/nav_receop_listar"
+            android:icon="@android:drawable/ic_search_category_default"
+            android:title="Receituario Listar" />
 
     </group>
 </menu>

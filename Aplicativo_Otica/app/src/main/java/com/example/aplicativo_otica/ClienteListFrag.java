@@ -18,7 +18,7 @@ public class ClienteListFrag extends Fragment {
         //Cria um objeto DataManager(permite acesso a tabelas e s queries)
         DataManager dm = new DataManager(getActivity());
         //Busca a textView e atribui para a variavel textResultado
-        TextView textResutados = v.findViewById(R.id.txtClientes);
+        TextView textResutados = v.findViewById(R.id.txtReceituarios);
         //busca os registros na tabela
         Cursor c = dm.listar();
         //String para manipular os resultados

@@ -19,6 +19,19 @@ public class DataManager {
     public static final String COLUNA_CPF = "cpf";
     public static final String  COLUNA_FONE = "fone";
 
+    public static final String TABELA_RECEITUARIO= "receituario";
+    //Defini as contantes com os nomes das colunas
+    public static final String COLUNA_IDOP= "id";
+    public static final String COLUNA_OEPERTO = "oeperto";
+    public static final String COLUNA_ODPERTO = "odperto";
+    public static final String COLUNA_OELONGE = "oelonge";
+    public static final String COLUNA_ODLONGE = "odlonge";
+    public static final String COLUNA_OEALTURA = "oealtura";
+    public static final String COLUNA_ODALTURA = "odaltura";
+    public static final String COLUNA_OBSERVACAO = "observacao";
+
+
+
     //criaro construtor da classe
     public DataManager(Context context){
         //criar uma instancia da nossa helper
@@ -34,6 +47,13 @@ public class DataManager {
         Log.i("insert() = ",query);
         db.execSQL(query);
     }
+    public void inserirrece (String oeperto, String odperto,String oelonge,String odlonge, String oealtura, String odaltura,String observacao) {
+        String query = "INSERT INTO "+ TABELA_RECEITUARIO+
+                " ( "+COLUNA_OEPERTO+" , "+COLUNA_ODPERTO+" , "+COLUNA_OELONGE+" , "+COLUNA_ODLONGE +" , "+COLUNA_OEALTURA+" , "+COLUNA_ODALTURA+" , "+COLUNA_OBSERVACAO+" )"+
+                " VALUES ("+"'"+oeperto+"' , '"+odperto+"' , '"+oelonge+"' , '"+odlonge+"' , '"+ oealtura+"' , '"+odaltura+"' , '"+observacao+"' );";
+        Log.i("insert() = ",query);
+        db.execSQL(query);
+    }
 
 
     public Cursor listar(){
@@ -41,14 +61,12 @@ public class DataManager {
         Cursor c = db.rawQuery(query,null);
         return c;
     }
-    //Busca Registro
-    public Cursor consulta(String nome){
-        String query = "SELECT "+COLUNA_ID+","+COLUNA_NOME+","+COLUNA_CPF+","+COLUNA_FONE+
-                " FROM "+TABELA_CLIENTE+" WHERE "+COLUNA_NOME+" = '"+nome+"';";
-        Log.i("consultar() = ",query);
+    public Cursor listarrece(){
+        String query = "SELECT * FROM "+TABELA_RECEITUARIO+";";
         Cursor c = db.rawQuery(query,null);
         return c;
     }
+
 
     private class NossoSQLiteOpenHelper extends SQLiteOpenHelper {
         //Cria o metodo Construtor da classe
@@ -65,6 +83,18 @@ public class DataManager {
                     +COLUNA_CPF+" TEXT NOT NULL,"
                     +COLUNA_FONE+" TEXT NOT NULL);";
             sqLiteDatabase.execSQL(queryNovaTabela);
+
+            String queryNovaTabelarece = "CREATE TABLE "
+                    +TABELA_RECEITUARIO +"("
+                    +COLUNA_IDOP +" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+                    +COLUNA_OEPERTO+" TEXT NOT NULL,"
+                    +COLUNA_ODPERTO+" TEXT NOT NULL,"
+                    +COLUNA_OELONGE+" TEXT NOT NULL,"
+                    +COLUNA_ODLONGE+" TEXT NOT NULL,"
+                    +COLUNA_OEALTURA+" TEXT NOT NULL,"
+                    +COLUNA_ODALTURA+" TEXT NOT NULL,"
+                    +COLUNA_OBSERVACAO+" TEXT NOT NULL);";
+            sqLiteDatabase.execSQL(queryNovaTabelarece);
         }
 
         @Override

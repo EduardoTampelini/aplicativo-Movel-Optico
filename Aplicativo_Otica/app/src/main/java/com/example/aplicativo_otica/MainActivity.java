@@ -13,14 +13,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.aplicativo_otica.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -98,6 +92,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if(id == R.id.nav_cliente_listar){
             //criar um novo fragmento
             ClienteListFrag fragment = new ClienteListFrag();
+            transaction.replace(R.id.fragmentHolder, fragment);
+        }else if(id == R.id.nav_receop_insert){
+            //criar um novo fragmento
+            ReceituarioInsertFrag fragment = new ReceituarioInsertFrag();
+            transaction.replace(R.id.fragmentHolder, fragment);
+        }else if(id == R.id.nav_receop_listar){
+            //criar um novo fragmento
+            ReceituarioListFrag fragment = new ReceituarioListFrag();
             transaction.replace(R.id.fragmentHolder, fragment);
         }
 
