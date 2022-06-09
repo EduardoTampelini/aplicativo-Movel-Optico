@@ -1,6 +1,7 @@
 package com.example.aplicativo_otica;
 
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
     EditText oealtura = v.findViewById(R.id.txtAlturaOE);
     EditText odaltura = v.findViewById(R.id.txtAlturaOD);
     EditText observacao = v.findViewById(R.id.txtObservacao);
+    EditText idCliente = v.findViewById(R.id.txtIdCliente);
 
 
     //pegar evento de click do botão
@@ -32,8 +34,8 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
     btn.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            dm.inserirrece(oeperto.getText().toString(),odperto.getText().toString(),oelonge.getText().toString(),oedlonge.getText().toString(),oealtura.getText().toString(),odaltura.getText().toString(),observacao.getText().toString());
-
+            dm.inserirrece(oeperto.getText().toString(),odperto.getText().toString(),oelonge.getText().toString(),oedlonge.getText().toString(),oealtura.getText().toString(),odaltura.getText().toString(),observacao.getText().toString(),idCliente.getText().toString());
+            //dm.inserirrece(oeperto.getText().toString(),odperto.getText().toString(),oelonge.getText().toString(),oedlonge.getText().toString(),oealtura.getText().toString(),odaltura.getText().toString(),observacao.getText().toString());
         }
     });
 

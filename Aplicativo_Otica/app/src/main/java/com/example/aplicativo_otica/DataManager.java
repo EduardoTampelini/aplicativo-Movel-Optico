@@ -29,6 +29,7 @@ public class DataManager {
     public static final String COLUNA_OEALTURA = "oealtura";
     public static final String COLUNA_ODALTURA = "odaltura";
     public static final String COLUNA_OBSERVACAO = "observacao";
+    public static final String COLUNA_IDCLIENTE = "idcliente";
 
 
 
@@ -47,13 +48,21 @@ public class DataManager {
         Log.i("insert() = ",query);
         db.execSQL(query);
     }
-    public void inserirrece (String oeperto, String odperto,String oelonge,String odlonge, String oealtura, String odaltura,String observacao) {
+
+    public void inserirrece (String oeperto, String odperto,String oelonge,String odlonge, String oealtura, String odaltura,String observacao,String idcliente) {
+        String query = "INSERT INTO "+ TABELA_RECEITUARIO+
+                " ( "+COLUNA_OEPERTO+" , "+COLUNA_ODPERTO+" , "+COLUNA_OELONGE+" , "+COLUNA_ODLONGE +" , "+COLUNA_OEALTURA+" , "+COLUNA_ODALTURA+" , "+COLUNA_OBSERVACAO+" , "+COLUNA_IDCLIENTE+" )"+
+                " VALUES ("+"'"+oeperto+"' , '"+odperto+"' , '"+oelonge+"' , '"+odlonge+"' , '"+ oealtura+"' , '"+odaltura+"' , '"+observacao+"' , '"+idcliente+"' );";
+        Log.i("insert() = ",query);
+        db.execSQL(query);
+    }
+   /* public void inserirrece (String oeperto, String odperto,String oelonge,String odlonge, String oealtura, String odaltura,String observacao) {
         String query = "INSERT INTO "+ TABELA_RECEITUARIO+
                 " ( "+COLUNA_OEPERTO+" , "+COLUNA_ODPERTO+" , "+COLUNA_OELONGE+" , "+COLUNA_ODLONGE +" , "+COLUNA_OEALTURA+" , "+COLUNA_ODALTURA+" , "+COLUNA_OBSERVACAO+" )"+
                 " VALUES ("+"'"+oeperto+"' , '"+odperto+"' , '"+oelonge+"' , '"+odlonge+"' , '"+ oealtura+"' , '"+odaltura+"' , '"+observacao+"' );";
         Log.i("insert() = ",query);
         db.execSQL(query);
-    }
+    }*/
 
 
     public Cursor listar(){
@@ -84,7 +93,7 @@ public class DataManager {
                     +COLUNA_FONE+" TEXT NOT NULL);";
             sqLiteDatabase.execSQL(queryNovaTabela);
 
-            String queryNovaTabelarece = "CREATE TABLE "
+           /* String queryNovaTabelarece = "CREATE TABLE "
                     +TABELA_RECEITUARIO +"("
                     +COLUNA_IDOP +" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                     +COLUNA_OEPERTO+" TEXT NOT NULL,"
@@ -93,7 +102,20 @@ public class DataManager {
                     +COLUNA_ODLONGE+" TEXT NOT NULL,"
                     +COLUNA_OEALTURA+" TEXT NOT NULL,"
                     +COLUNA_ODALTURA+" TEXT NOT NULL,"
-                    +COLUNA_OBSERVACAO+" TEXT NOT NULL);";
+                    +COLUNA_OBSERVACAO+" TEXT NOT NULL);";*/
+           String queryNovaTabelarece = "CREATE TABLE "
+                    +TABELA_RECEITUARIO +"("
+                    +COLUNA_IDOP +" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+                    +COLUNA_OEPERTO+" TEXT NOT NULL,"
+                    +COLUNA_ODPERTO+" TEXT NOT NULL,"
+                    +COLUNA_OELONGE+" TEXT NOT NULL,"
+                    +COLUNA_ODLONGE+" TEXT NOT NULL,"
+                    +COLUNA_OEALTURA+" TEXT NOT NULL,"
+                    +COLUNA_ODALTURA+" TEXT NOT NULL,"
+                    +COLUNA_OBSERVACAO+" TEXT NOT NULL,"
+                    +COLUNA_IDCLIENTE+ " INTEGER, FOREIGN KEY (\""+COLUNA_IDCLIENTE+"\") REFERENCES \""+TABELA_CLIENTE+"\"(\""+COLUNA_ID+"\"));";
+
+
             sqLiteDatabase.execSQL(queryNovaTabelarece);
         }
 

@@ -26,7 +26,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
     //Itera por todos os registros encontrados
     while (c.moveToNext()){
         //adiciona resultado a String
-        resultados += (c.getString(1)+" - "+c.getString(2)+" - "+c.getString(3)+" - "+c.getString(4)+" - "+c.getString(5)+" - "+c.getString(6)+" - "+c.getString(7)+"\n");
+        resultados += (c.getString(1)+" - "+c.getString(2)+" - "+c.getString(3)+" - "+c.getString(4)+" - "+c.getString(5)+" - "+c.getString(6)+" - "+c.getString(7)+" - "+c.getString(8)+"\n");
 
     }
     //Exibe os resultados na TextView
