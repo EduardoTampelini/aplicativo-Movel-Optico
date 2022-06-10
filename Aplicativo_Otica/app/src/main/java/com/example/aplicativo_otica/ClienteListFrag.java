@@ -26,7 +26,7 @@ public class ClienteListFrag extends Fragment {
         //Itera por todos os registros encontrados
         while (c.moveToNext()){
             //adiciona resultado a String
-            resultados += (c.getString(1)+" - "+c.getString(2)+" - "+c.getString(3)+"\n");
+            resultados += ("Cliente: "+c.getString(1)+" CPF:"+c.getString(2)+" Telefone:"+c.getString(3)+"\n");
 
         }
         //Exibe os resultados na TextView
