@@ -15,14 +15,14 @@ public class ClienteInsertFrag extends Fragment {
         View v = inflater.inflate(R.layout.cliente_insert, container, false);
 
 
-        // aqui vai o código do banco de dados
+
         DataManager dm = new DataManager(getActivity());
         Button btn = v.findViewById(R.id.btnCliente);
         EditText nome = v.findViewById(R.id.editNome);
         EditText cpf = v.findViewById(R.id.editCpf);
         EditText fone = v.findViewById(R.id.editFone);
 
-        //pegar evento de click do botão
+
 
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
